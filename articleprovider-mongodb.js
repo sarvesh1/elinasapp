@@ -66,7 +66,7 @@ ArticleProvider.prototype.save = function(articles, callback) {
       if( error ) callback(error)
       else {
 	//TODO: Learn MongoDB and redo this
-	articles.date_of_activity = new Date(articles.time_of_activity).toDateString();
+	articles.date_of_activity = new Date(articles.time_of_activity).toLocaleDateString();
 	articles.current_time = new Date(articles.current_time);
 	articles.time_of_activity = new Date(articles.time_of_activity);
 	articles.eat_how_much = (articles.eat_how_much > 0) ? parseInt(articles.eat_how_much) : 0;
