@@ -2,6 +2,5 @@ ssl-cert.pem
 ssl-key.pem
 certrequest.csr
 start.sh
-node_modules/
 *.old
 *.zip
