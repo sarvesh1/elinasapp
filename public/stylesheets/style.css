@@ -1,0 +1,181 @@
+body {
+  font-family: "Helvetica Neue", "Lucida Grande", "Arial";
+  font-size: 13px;
+  text-align: center;
+  text-stroke: 1px rgba(255,255,255,0.1);
+  color: #555;
+}
+h1,
+h2 {
+  margin: 0;
+  font-size: 22px;
+  color: #343434;
+}
+h1 {
+  text-shadow: 1px 2px 2px #ddd;
+  font-size: 60px;
+}
+#articles {
+  text-align: left;
+  margin-left: auto;
+  margin-right: auto;
+  width: 320px;
+}
+#articles .article {
+  margin: 20px;
+}
+#articles .article .created_at {
+  display: none;
+}
+#articles .article .title {
+  font-weight: bold;
+  text-decoration: underline;
+  background-color: #eee;
+}
+#articles .article .body {
+  background-color: #ffa;
+}
+.article .created_at {
+  display: none;
+}
+.article input[type =text] {
+  width: 490px;
+  margin-left: 16px;
+}
+.article input[type =button],
+.article input[type =submit] {
+  text-align: left;
+  margin-left: 440px;
+}
+.article textarea {
+  width: 490px;
+  height: 90px;
+}
+.post-from {
+  font-weight: bold;
+  font-family: "Helvetica Neue", "Lucida Grande", "Arial";
+  font-size: 12px;
+  text-stroke: 1px rgba(255,255,255,0.1);
+}
+.post-details {
+  font-weight: normal;
+  font-family: "Helvetica Neue", "Lucida Grande", "Arial";
+  font-size: 17px;
+  text-stroke: 1px rgba(255,255,255,0.1);
+}
+.post-time {
+  position: absolute;
+  //top: 2px;
+  //right: 5px;
+  font-family: "Helvetica Neue", "Lucida Grande", "Arial";
+  font-size: 10px;
+  top: -13px;
+  left; 5px;
+  color: black;
+}
+/* ============================================================================================================================
+== BUBBLE WITH A RIGHT-ANGLED TRIANGLE
+from: http://nicolasgallagher.com/pure-css-speech-bubbles/demo/
+** ============================================================================================================================ */
+
+/* THE SPEECH BUBBLE
+------------------------------------------------------------------------------------------------------------------------------- */
+
+.triangle-right {
+        text-align: left;
+	position:relative;
+	padding:7px;
+	margin:1em 0 3em;
+	color:#fff;
+	background:#075698; /* default background for browsers without gradient support */
+	/* css3 */
+	background:-webkit-gradient(linear, 0 0, 0 100%, from(#2e88c4), to(#075698));
+	background:-moz-linear-gradient(#2e88c4, #075698);
+	background:-o-linear-gradient(#2e88c4, #075698);
+	background:linear-gradient(#2e88c4, #075698);
+	-webkit-border-radius:10px;
+	-moz-border-radius:10px;
+	border-radius:10px;
+	width: 50%
+}
+
+/* Variant : for top positioned triangle
+------------------------------------------ */
+
+.triangle-right.top {
+	background:-webkit-gradient(linear, 0 0, 0 100%, from(#075698), to(#2e88c4));
+	background:-moz-linear-gradient(#075698, #2e88c4);
+	background:-o-linear-gradient(#075698, #2e88c4);
+	background:linear-gradient(#075698, #2e88c4);
+	position:relative;
+	left:50%;
+}
+
+/* Variant : for left positioned triangle
+------------------------------------------ */
+
+.triangle-right.left {
+	margin-left:40px;
+	background:#075698;
+}
+
+/* Variant : for right positioned triangle
+------------------------------------------ */
+
+.triangle-right.right {
+	margin-right:40px;
+	background:#075698;
+}
+
+/* THE TRIANGLE
+------------------------------------------------------------------------------------------------------------------------------- */
+
+.triangle-right:after {
+	content:"";
+	position:absolute;
+	bottom:-20px; /* value = - border-top-width - border-bottom-width */
+	left:50px; /* controls horizontal position */
+	border-width:20px 0 0 20px; /* vary these values to change the angle of the vertex */
+	border-style:solid;
+	border-color:#075698 transparent; 
+    /* reduce the damage in FF3.0 */
+    display:block; 
+    width:0;
+}
+
+/* Variant : top
+------------------------------------------ */
+
+.triangle-right.top:after {
+	top:-20px; /* value = - border-top-width - border-bottom-width */
+	right:50px; /* controls horizontal position */
+	bottom:auto;
+	left:auto;
+	border-width:20px 20px 0 0; /* vary these values to change the angle of the vertex */
+	border-color:transparent #075698; 
+	
+}
+
+/* Variant : left
+------------------------------------------ */
+
+.triangle-right.left:after {
+	top:16px; 
+	left:-40px; /* value = - border-left-width - border-right-width */
+	bottom:auto;
+	border-width:15px 40px 0 0; /* vary these values to change the angle of the vertex */
+	border-color:transparent #075698; 
+}
+
+/* Variant : right
+------------------------------------------ */
+
+.triangle-right.right:after {
+	top:16px; 
+	right:-40px; /* value = - border-left-width - border-right-width */
+	bottom:auto;
+    left:auto;
+	border-width:15px 0 0 40px; /* vary these values to change the angle of the vertex */
+	border-color:transparent #075698 ; 
+}
+

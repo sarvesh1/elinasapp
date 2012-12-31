@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Elina's Schedule
+        </title>
+        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+        <link rel="stylesheet" href="/stylesheets/style.css" />
+        <style>
+            /* App custom styles */
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
+        </script>
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.2.0/jquery.mobile-1.2.0.min.js">
+        </script>
+	<script src="/javascripts/js/highcharts.js" type="text/javascript"></script>
+	<script src="/javascripts/build_chart1.js" type="text/javascript"></script>
+	<script src="/javascripts/build_chart2.js" type="text/javascript"></script>
+	<script src="/javascripts/date.js" type="text/javascript"></script>
+	<script src="/javascripts/chatter_feed.js" type="text/javascript"></script>
+	<script src="/javascripts/jquery.timeago.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <!-- Home -->
+            <form id="callAjaxForm">
+        <div data-role="page" id="home">
+            <div data-theme="a" data-role="header">
+                <h3 id="heading">
+                    Elina's Schedule
+                </h3>
+            </div>
+            <div data-role="content">
+
+        <div data-role="fieldcontain">
+            <fieldset data-role="controlgroup">
+                <input name="what_activity" id="what_activity" placeholder="" value="" type="hidden">
+		<input name="current_time" id="current_time" placeholder="" value="" type="hidden">
+		<input name="time_of_activity" id="time_of_activity" placeholder="" value="" type="hidden">
+		<input name="chatter_post" id="chatter_post" placeholder="" value="" type="hidden">
+            </fieldset>
+        </div>
+
+
+                <div><h4>
+                        How Long Ago?
+                </h4></div>
+                <div data-role="fieldcontain">
+                    <label for="time_ago">
+                    </label>
+                    <select id="time_ago" name="time_ago" data-theme="b">
+                        <option value="0">
+                            Just now 
+                        </option>
+                        <option value="-5">
+                            5 minutes ago
+                        </option>
+                        <option value="-10">
+                            10 minutes ago
+                        </option>
+                        <option value="-15">
+                            15 minutes ago
+                        </option>
+                        <option value="-30">
+                            30 minutes ago
+                        </option>
+                        <option value="-60">
+                            1 hour ago
+                        </option>
+
+                    </select>
+                </div>
+                <div><h4>
+                        What did my princess do?
+                </h4></div>
+                <ul data-role="listview" data-divider-theme="b" data-inset="true">
+                    <li data-theme="c">
+                        <a href="#eat" id="clicked_eat" data-transition="slide">
+                            Eat
+                        </a>
+                    </li>
+                    <li data-theme="c">
+                        <a href="#done" id="clicked_poop" data-transition="slide">
+                            Poop
+                        </a>
+                    </li>
+                    <li data-theme="c">
+                        <a href="#done" id="clicked_pee" data-transition="slide">
+                            Pee
+                        </a>
+                    </li>
+                    <li data-theme="c">
+                        <a href="#done" id="clicked_else" data-transition="slide">
+                            Something else
+                        </a>
+                    </li>
+                </ul>
+            </div>
+<!--- footer --->
+    <div data-theme="a" data-role="footer" data-position="fixed">
+        <div data-role="navbar" data-iconpos="top">
+            <ul>
+                <li>
+                    <a href="#home" data-transition="fade" data-theme="" data-icon="plus"
+                    class="ui-btn-active ui-state-persist">
+                        Activity
+                    </a>
+                </li>
+                <li>
+                    <a href="#reports" data-transition="fade" data-theme="" data-icon="grid">
+                        Reports
+                    </a>
+                </li>
+                <li>
+                    <a href="#chatter" data-transition="fade" data-theme="" data-icon="star">
+                        Chatter
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+<!--- end footer --->
+</div>
+
+        <!-- eat -->
+<div data-role="page" id="eat">
+    <div data-theme="a" data-role="header">
+        <h2>
+            Eat
+        </h2>
+        <a data-role="button" data-direction="reverse" href="#home" data-icon="arrow-l"
+        data-iconpos="left" class="ui-btn-left">
+            Back
+	</a>
+    </div>
+    <div data-role="content">
+        <div data-role="fieldcontain">
+	        <div><h4>
+       			     What did she eat?
+
+	        </h4></div>
+            <fieldset data-role="controlgroup" data-type="vertical">
+                <input id="breast-milk" name="Breast Milk" type="checkbox">
+                <label for="breast-milk">
+                    Breast Milk
+                </label>
+                <input id="formula" name="Formula" type="checkbox">
+                <label for="formula">
+                    Formula
+                </label>
+                <input id="solid-food" name="Solid Food" type="checkbox">
+                <label for="solid-food">
+                    Solid Food
+                </label>
+            </fieldset>
+        </div>
+        <div data-role="fieldcontain">
+        <div><h4>
+            How much did she eat?
+        </h4></div>
+            <fieldset data-role="controlgroup">
+                <label for="eat_how_much">
+                </label>
+                <input name="eat_how_much" id="eat_how_much" placeholder="ml" value=""
+                type="tel">
+            </fieldset>
+        </div>
+        <a href="#done" data-role="button">Next ></a>
+    </div>
+
+<!--- footer --->
+    <div data-theme="a" data-role="footer" data-position="fixed">
+        <div data-role="navbar" data-iconpos="top">
+            <ul>
+                <li>
+                    <a href="#home" data-transition="fade" data-theme="" data-icon="plus"
+                    class="ui-btn-active ui-state-persist">
+                        Activity
+                    </a>
+                </li>
+                <li>
+                    <a href="#reports" data-transition="fade" data-theme="" data-icon="grid">
+                        Reports
+                    </a>
+                </li>
+                <li>
+                    <a href="#chatter" data-transition="fade" data-theme="" data-icon="star">
+                        Chatter
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+<!--- end footer --->
+
+</div>
+
+<!--- done --->
+<div data-role="page" id="done">
+    <div data-theme="a" data-role="header">
+        <h3>
+            Comment
+        </h3>
+        <a data-role="button" data-rel="back" href="#page1" data-icon="arrow-l"
+        data-iconpos="left" class="ui-btn-left">
+            Back
+        </a>
+    </div>
+    <div data-role="content">
+        <h4>
+            Any comments?
+        </h4>
+        <div data-role="fieldcontain">
+            <fieldset data-role="controlgroup">
+                <label for="textarea1">
+                </label>
+                <textarea name="comment" id="comment" placeholder=""></textarea>
+            </fieldset>
+        </div>
+        <button data-theme="b" id="submit" type="submit">Submit</button>
+    </div>
+
+<!--- footer --->
+    <div data-theme="a" data-role="footer" data-position="fixed">
+        <div data-role="navbar" data-iconpos="top">
+            <ul>
+                <li>
+                    <a href="#home" data-transition="fade" data-theme="" data-icon="plus"
+                    class="ui-btn-active ui-state-persist">
+                        Activity
+                    </a>
+                </li>
+                <li>
+                    <a href="#reports" data-transition="fade" data-theme="" data-icon="grid">
+                        Reports
+                    </a>
+                </li>
+                <li>
+                    <a href="#chatter" data-transition="fade" data-theme="" data-icon="star">
+                        Chatter
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+<!--- end footer --->
+
+
+</div>
+
+<!--- reports --->
+<div data-role="page" id="reports">
+    <div data-theme="a" data-role="header">
+        <h3>
+            Reports
+        </h3>
+    </div>
+    <div data-role="content">
+
+        <div id="reports" data-role="collapsible-set">
+            <div data-role="collapsible">
+                <h3>
+                    Number of Activities
+                </h3>
+                <div id="chart1_container" style="width: 100%; height: 400px"></div>
+
+            </div>
+            <div data-role="collapsible">
+                <h3>
+                    Amount of Feedings
+                </h3>
+		<div id="chart2_container" style="width: 100%; height: 400px"></div>
+            </div>
+        </div>
+     </div>
+
+<!--- footer --->
+    <div data-theme="a" data-role="footer" data-position="fixed">
+        <div data-role="navbar" data-iconpos="top">
+            <ul>
+                <li>
+                    <a href="#home" data-transition="fade" data-theme="" data-icon="plus">
+                        Activity
+                    </a>
+                </li>
+                <li>
+                    <a href="#reports" data-transition="fade" data-theme="" data-icon="grid"
+		    class="ui-btn-active ui-state-persist">
+                        Reports
+                    </a>
+                </li>
+                <li>
+                    <a href="#chatter" data-transition="fade" data-theme="" data-icon="star">
+                        Chatter
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+<!--- end footer --->
+</div>
+
+
+<!--- chatter --->
+<div data-role="page" id="chatter">
+    <div data-theme="a" data-role="header">
+        <h3>
+            Chatter
+        </h3>
+    </div>
+    <div data-role="content">
+        <div data-role="fieldcontain">
+            <fieldset data-role="controlgroup">
+                <div id="chatter_container" style="width: 100%; height: 100%"></div>
+            </fieldset>
+        </div>
+
+    </div>
+<!--- footer --->
+    <div data-theme="a" data-role="footer" data-position="fixed">
+        <div data-role="navbar" data-iconpos="top">
+            <ul>
+                <li>
+                    <a href="#home" data-transition="fade" data-theme="" data-icon="plus">
+                        Activity
+                    </a>
+                </li>
+                <li>
+                    <a href="#reports" data-transition="fade" data-theme="" data-icon="grid">
+                        Reports
+                    </a>
+                </li>
+                <li>
+                    <a href="#chatter" data-transition="fade" data-theme="" data-icon="star"
+                    class="ui-btn-active ui-state-persist">
+                        Chatter
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+<!--- end footer --->
+
+</div>
+
+
+<!--- thanks --->
+<div data-role="page" id="thanks">
+    <div data-theme="a" data-role="header">
+        <h3>
+            Thank You
+        </h3>
+    </div>
+    <div data-role="content">
+      <h3 id="notification"></h3>
+    </div>
+
+<!--- footer --->
+    <div data-theme="a" data-role="footer" data-position="fixed">
+        <div data-role="navbar" data-iconpos="top">
+            <ul>
+                <li>
+                    <a href="#home" data-transition="fade" data-theme="" data-icon="plus"
+                    class="ui-btn-active ui-state-persist">
+                        Activity
+                    </a>
+                </li>
+                <li>
+                    <a href="#reports" data-transition="fade" data-theme="" data-icon="grid">
+                        Reports
+                    </a>
+                </li>
+                <li>
+                    <a href="#chatter" data-transition="fade" data-theme="" data-icon="star">
+                        Chatter
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+<!--- end footer --->
+
+</div>
+
+
+
+            </form>
+
+        <script>
+            //App custom javascript
+        function onSuccess(data, status)
+        {
+	    $.mobile.changePage("#thanks");
+            data = $.trim(data);
+            $("#notification").text("Record was updated successfully! ");
+        }
+
+        function onError(data, status)
+        {
+            // handle an error
+            $.mobile.changePage("#thanks");
+            data = $.trim(data);
+            $("#notification").text("Sorry, there was a problem! " + data);
+        }
+
+        $(document).ready(function() {
+	    //track what activity was clicked
+	    $("#clicked_eat").click(function(){
+		$("#what_activity").val("eat");
+	    });
+            $("#clicked_poop").click(function(){
+                $("#what_activity").val("poop");
+            });
+            $("#clicked_pee").click(function(){
+                $("#what_activity").val("pee");
+            });
+            $("#clicked_else").click(function(){
+                $("#what_activity").val("other");
+            });
+
+
+	    //submit activity report
+            $("#submit").click(function(){
+
+		$("#current_time").val(Date.now().toISOString());
+		$("#time_of_activity").val(Date.now().addMinutes($("#time_ago").val()).toISOString());
+	
+		var what_ate = [];
+		if($("#breast-milk").prop('checked')) { what_ate.push("breast milk") };
+		if($("#formula").prop('checked')) { what_ate.push("formula") };
+		if($("#solid-food").prop('checked')) { what_ate.push("solid food") };
+	
+		switch($("#what_activity").val()) {
+                        case "eat": $("#chatter_post").val("Elina ate " + $("#eat_how_much").val() + " ml of " + what_ate.join(" and ") + ". "  + (($("#comment").val().length > 0) ? (" " + $("#comment").val()) : ""));
+                                 break;
+                        case "poop": $("#chatter_post").val("Elina pooped." + (($("#comment").val().length > 0) ? (" " + $("#comment").val()) : ""));
+                                 break;
+                        case "pee": $("#chatter_post").val("Elina peed." + (($("#comment").val().length > 0) ? (" " + $("#comment").val()) : ""));
+                                 break;
+
+			case "other": $("#chatter_post").val("" + (($("#comment").val().length > 0) ? (" " + $("#comment").val()) : ""));
+				 break;
+		};
+
+                var formData = $("#callAjaxForm").serialize();
+
+                $.ajax({
+                    type: "POST",
+                    url: "/activity/new",
+                    cache: false,
+                    data: formData,
+                    success: onSuccess,
+                    error: onError
+                });
+
+                return false;
+            });
+
+        });
+    </script>
+    </body>
+</html>
+

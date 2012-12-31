@@ -1,0 +1,14 @@
+{
+ "name":"af-node-base",
+  "version":"0.0.1",
+  "dependencies":{
+      "express":"2.5.8"
+    , "stylus": ">= 0.0.1"
+    , "jade": ">= 0.0.1"
+    , "mongodb": ">= 0.9.6-7"
+    , "restler": "0.2.1"
+    , "fs":""
+    , "querystring":""
+
+  }
+}
