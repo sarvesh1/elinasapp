@@ -4,3 +4,4 @@ certrequest.csr
 start.sh
 node_modules/
 *.old
+*.zip

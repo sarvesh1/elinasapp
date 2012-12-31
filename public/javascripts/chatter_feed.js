@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-	function requestChatterFeed(chatter) {
+	function requestChatterFeed() {
 	    $.ajax({
 		url: '/feed',
 		success: function(data) {
@@ -31,16 +31,15 @@ $(document).ready(function() {
 				post.appendChild(time);
 				post.appendChild(details);
 
-				chatter.appendChild(post);	
+				$("#chatter_container").append(post);	
 			 }
 
-      			//chart = new Highcharts.Chart(options);
 
 		},
 		cache: false
 	    });
 	}
 
-	requestChatterFeed(chatter_container);
+	requestChatterFeed();
 
 });
