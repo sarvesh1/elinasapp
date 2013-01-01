@@ -95,8 +95,7 @@ ArticleProvider.prototype.findDateActivity= function(callback) {
                          { _id : {activity: "$what_activity", date: ("$date_of_activity")},
                            total_activity : { $sum : 1 }	
 			  }
-	  },
-  	  { $sort : { date: -1 } }
+	  }
         ], function(err, results) {
           if( error ) callback(error)
           else {callback(null, results)}
@@ -117,7 +116,6 @@ ArticleProvider.prototype.findDateFeedings = function(callback) {
 			   total_amount : { $sum: "$eat_how_much" }
                           }
           },
-	{ $sort : { date: -1 } },
 	{ $match: {"_id.activity": "eat" } }
         ], function(err, results) {
           if( error ) callback(error)

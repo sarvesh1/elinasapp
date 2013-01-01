@@ -118,7 +118,7 @@ app.get('/activity/bydate', function(req, res){
         if(typeof results[docs[item]._id.date]=="undefined") {
             results[docs[item]._id.date]={};
         }
-    
+   	 
         results[docs[item]._id.date][docs[item]._id.activity]=docs[item].total_activity
     }
         res.contentType('json');
