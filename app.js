@@ -234,5 +234,5 @@ app.get('/feed/new', function(req, res) {
        });
 });*/
 
-app.listen(process.env.VCAP_APP_PORT || 3001);
-console.log("Express server listening on port 3001 in %s mode", app.settings.env);
+app.listen(port || 3001);
+console.log("Express server listening on port %s in %s mode", port, app.settings.env);
