@@ -4,9 +4,19 @@ var Server = require('mongodb').Server;
 var BSON = require('mongodb').BSON;
 var ObjectID = require('mongodb').ObjectID;
 
-ArticleProvider = function(host, port) {
-  this.db= new Db('node-mongo-test', new Server(host, port, {auto_reconnect: true}, {}));
-  this.db.open(function(){});
+ArticleProvider = function(host, port, user, pass) {
+  this.db= new Db('node-mongo-test', new Server(host, parseInt(port), {auto_reconnect: true}, function(error, result){
+	if(error) {
+	console.log("new db " + error);}
+  }));
+
+  this.db.open(function(err, db){
+	if(err) console.log("can't open " + err);
+  	db.authenticate(user, pass, function(err) {
+		if(err) console.log("Unable to authenticate" + err);
+	});
+  });
+
 };
 
 ArticleProvider.prototype.addCommentToArticle = function(articleId, comment, callback) {

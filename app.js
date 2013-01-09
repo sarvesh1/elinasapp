@@ -19,6 +19,11 @@ var cid = process.env.CLIENT_ID;
 var csecr = process.env.CLIENT_SECRET;
 var lserv = process.env.LOGIN_SERVER;
 var redir = process.env.REDIRECT_URI;
+var mongo_uri = process.env.MONGO_URI;
+var mongo_port = process.env.MONGO_PORT;
+var mongo_user = process.env.MONGO_USER;
+var mongo_pass = process.env.MONGO_PASS;
+
 
 var sslkey = fs.readFileSync('ssl-key.pem');
 var sslcert = fs.readFileSync('ssl-cert.pem')
@@ -90,7 +95,7 @@ app.configure('production', function(){
 
 // Routes
 
-var articleProvider = new ArticleProvider('localhost', 27017);
+var articleProvider = new ArticleProvider(mongo_uri, mongo_port, mongo_user, mongo_pass);
 
 
 app.get('/', function(req, res){
