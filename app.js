@@ -25,8 +25,9 @@ var mongo_user = process.env.MONGO_USER;
 var mongo_pass = process.env.MONGO_PASS;
 
 
-var sslkey = fs.readFileSync('ssl-key.pem');
+/*var sslkey = fs.readFileSync('ssl-key.pem');
 var sslcert = fs.readFileSync('ssl-cert.pem')
+*/
 
 
 /**
@@ -55,9 +56,9 @@ function idcheck() {
  * Create the server
  */
 var app = module.exports = express.createServer(
-    {    key: sslkey,
+/*    {    key: sslkey,
          cert: sslcert
-    },
+    },*/
     express.cookieParser(),
     express.session({ secret: csecr }),
     express.query(),
