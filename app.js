@@ -121,11 +121,13 @@ app.get('/activity/bydate', function(req, res){
 
     for (var item in docs) {
 	//must make sure there is a node for the date so you can add activities
+	var index_date = new Date(docs[item]._id.date).toString("ddd MMM dd yyyy");
+
         if(typeof results[docs[item]._id.date]=="undefined") {
-            results[docs[item]._id.date]={};
+            results[index_date]={};
         }
    	 
-        results[docs[item]._id.date][docs[item]._id.activity]=docs[item].total_activity
+        results[index_date][docs[item]._id.activity]=docs[item].total_activity
     }
         res.contentType('json');
 	res.send(results);
