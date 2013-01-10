@@ -120,9 +120,9 @@ app.get('/activity/bydate', function(req, res){
 	var results = {};
 
     for (var item in docs) {
-	//must make sure there is a node for the date so you can add activities
-	var index_date = new Date(docs[item]._id.date).toString("ddd MMM dd yyyy");
+	var index_date = new Date(docs[item]._id.date).toDateString();
 
+	//must make sure there is a node for the date so you can add activities
         if(typeof results[docs[item]._id.date]=="undefined") {
             results[index_date]={};
         }
@@ -140,14 +140,16 @@ app.get('/activity/feedings', function(req, res){
         var results = {};
 
     for (var item in docs) {
+	var index_date = new Date(docs[item]._id.date).toDateString();
+
         //must make sure there is a node for the date so you can add activities
         if(typeof results[docs[item]._id.date]=="undefined") {
-            results[docs[item]._id.date]={};
+            results[index_date]={};
         }
 
-        results[docs[item]._id.date]["activity"] = docs[item]._id.activity;
-	results[docs[item]._id.date]["total_activity"] = docs[item].total_activity;
-	results[docs[item]._id.date]["total_amount"] = docs[item].total_amount;
+        results[index_date]["activity"] = docs[item]._id.activity;
+	results[index_date]["total_activity"] = docs[item].total_activity;
+	results[index_date]["total_amount"] = docs[item].total_amount;
 
     }
         res.contentType('json');
