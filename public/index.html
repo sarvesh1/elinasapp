@@ -71,9 +71,24 @@
                         What did my princess do?
                 </h4></div>
                 <ul data-role="listview" data-divider-theme="b" data-inset="true">
-                    <li data-theme="c">
+                    <!-- <li data-theme="c">
                         <a href="#eat" id="clicked_eat" data-transition="slide">
                             Eat
+                        </a>
+                    </li> -->
+                    <li data-theme="c">
+                        <a href="#done" id="clicked_justate" data-transition="slide">
+                            Just Ate
+                        </a>
+                    </li>
+                    <li data-theme="c">
+                        <a href="#done" id="clicked_sleep" data-transition="slide">
+                            Sleep
+                        </a>
+                    </li>
+                    <li data-theme="c">
+                        <a href="#done" id="clicked_wake" data-transition="slide">
+                            Wake
                         </a>
                     </li>
                     <li data-theme="c">
@@ -84,11 +99,6 @@
                     <li data-theme="c">
                         <a href="#done" id="clicked_pee" data-transition="slide">
                             Pee
-                        </a>
-                    </li>
-                    <li data-theme="c">
-                        <a href="#done" id="clicked_else" data-transition="slide">
-                            Something else
                         </a>
                     </li>
                 </ul>
@@ -405,6 +415,15 @@
 	    $("#clicked_eat").click(function(){
 		$("#what_activity").val("eat");
 	    });
+            $("#clicked_justate").click(function(){
+                $("#what_activity").val("justate");
+            });
+            $("#clicked_sleep").click(function(){
+                $("#what_activity").val("sleep");
+            });
+            $("#clicked_wake").click(function(){
+                $("#what_activity").val("wake");
+            });
             $("#clicked_poop").click(function(){
                 $("#what_activity").val("poop");
             });
@@ -429,6 +448,12 @@
 	
 		switch($("#what_activity").val()) {
                         case "eat": $("#chatter_post").val("Elina ate " + $("#eat_how_much").val() + " ml of " + what_ate.join(" and ") + ". "  + (($("#comment").val().length > 0) ? (" " + $("#comment").val()) : ""));
+                                 break;
+                        case "justate": $("#chatter_post").val("Elina ate." + (($("#comment").val().length > 0) ? (" " + $("#comment").val()) : ""));
+                                 break;
+                        case "sleep": $("#chatter_post").val("Elina just fell asleep." + (($("#comment").val().length > 0) ? (" " + $("#comment").val()) : ""));
+                                 break;
+                        case "wake": $("#chatter_post").val("Elina just woke up." + (($("#comment").val().length > 0) ? (" " + $("#comment").val()) : ""));
                                  break;
                         case "poop": $("#chatter_post").val("Elina pooped." + (($("#comment").val().length > 0) ? (" " + $("#comment").val()) : ""));
                                  break;

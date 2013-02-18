@@ -26,7 +26,7 @@ var mongo_pass = process.env.MONGO_PASS;
 
 
 /*var sslkey = fs.readFileSync('ssl-key.pem');
-var sslcert = fs.readFileSync('ssl-cert.pem')
+var sslcert = fs.readFileSync('ssl-cert.pem');
 */
 
 
